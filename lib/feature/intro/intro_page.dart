@@ -68,6 +68,7 @@ class _IntroPageState extends State<IntroPage> {
                     return SizedBox.expand(
                       child: FittedBox(
                         fit: BoxFit.cover,
+                        clipBehavior: Clip.hardEdge,
                         child: SizedBox(
                           width: _playerController.value.size.width,
                           height: _playerController.value.size.height,

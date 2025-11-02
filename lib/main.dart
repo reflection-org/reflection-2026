@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reflection2026/feature/intro/intro_page.dart';
 
+import 'feature/clock/clock_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              IntroPage(),
+              const IntroPage(),
+              const ClockPage(),
               Container(
                 height: MediaQuery.of(context).size.height,
                 color: Colors.blue.shade900,
