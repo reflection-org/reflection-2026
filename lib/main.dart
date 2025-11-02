@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reflection2026/gen/assets.gen.dart';
+import 'package:reflection2026/feature/intro/intro_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +15,44 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: 'Pretendard',
       ),
       home: Scaffold(
         backgroundColor: Colors.black,
-        body: Container(
-          child: Assets.images.reflection.svg(
-              package: null,
-              colorFilter:
-                  const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              IntroPage(),
+              Container(
+                height: MediaQuery.of(context).size.height,
+                color: Colors.blue.shade900,
+                child: Center(
+                  child: Text(
+                    '두 번째 섹션',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height,
+                color: Colors.green.shade900,
+                child: Center(
+                  child: Text(
+                    '세 번째 섹션',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
