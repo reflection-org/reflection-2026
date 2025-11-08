@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reflection2026/feature/intro/intro_page.dart';
+import 'package:reflection2026/feature/welcome/welcome_message_page.dart';
+import 'package:reflection2026/shared/ui/theme/custom_color.dart';
 
 import 'feature/clock/clock_page.dart';
 
@@ -19,43 +21,21 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Pretendard',
       ),
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const IntroPage(),
-              const ClockPage(),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                color: Colors.blue.shade900,
-                child: Center(
-                  child: Text(
-                    '두 번째 섹션',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 48,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                color: Colors.green.shade900,
-                child: Center(
-                  child: Text(
-                    '세 번째 섹션',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 48,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+      home: const Scaffold(
+        backgroundColor: CustomColor.black,
+        body: CustomScrollView(
+          shrinkWrap: true,
+          slivers: [
+            SliverToBoxAdapter(
+              child: IntroPage(),
+            ),
+            SliverToBoxAdapter(
+              child: ClockPage(),
+            ),
+            SliverToBoxAdapter(
+              child: WelcomeMessagePage(),
+            ),
+          ],
         ),
       ),
     );

@@ -98,62 +98,69 @@ class _ClockPageState extends State<ClockPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 200),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(Assets.images.clockBackground.path),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 70),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 16,
-            children: [
-              const Text(
-                "행사 오픈까지",
-                style: TextStyle(
-                  color: CustomColor.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+    return Center(
+      child: Wrap(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 200),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(Assets.images.clockBackground.path),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 60, horizontal: 70),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  spacing: 12,
+                  spacing: 16,
                   children: [
-                    ClockTimeItem(
-                      title: _remainingDays.toString().padLeft(2, '0'),
-                      unit: "Day",
+                    const Text(
+                      "행사 오픈까지",
+                      style: TextStyle(
+                        color: CustomColor.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    const ClockTimeItemDivider(),
-                    ClockTimeItem(
-                      title: _remainingHours.toString().padLeft(2, '0'),
-                      unit: "hour",
-                    ),
-                    const ClockTimeItemDivider(),
-                    ClockTimeItem(
-                      title: _remainingMinutes.toString().padLeft(2, '0'),
-                      unit: "minute",
-                    ),
-                    const ClockTimeItemDivider(),
-                    ClockTimeItem(
-                      title: _remainingSeconds.toString().padLeft(2, '0'),
-                      unit: "second",
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        spacing: 12,
+                        children: [
+                          ClockTimeItem(
+                            title: _remainingDays.toString().padLeft(2, '0'),
+                            unit: "Day",
+                          ),
+                          const ClockTimeItemDivider(),
+                          ClockTimeItem(
+                            title: _remainingHours.toString().padLeft(2, '0'),
+                            unit: "hour",
+                          ),
+                          const ClockTimeItemDivider(),
+                          ClockTimeItem(
+                            title: _remainingMinutes.toString().padLeft(2, '0'),
+                            unit: "minute",
+                          ),
+                          const ClockTimeItemDivider(),
+                          ClockTimeItem(
+                            title: _remainingSeconds.toString().padLeft(2, '0'),
+                            unit: "second",
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
