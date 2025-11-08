@@ -112,7 +112,7 @@ class _IntroPageState extends State<IntroPage> {
                       borderRadius: BorderRadius.circular(24),
                       color: CustomColor.primary,
                     ),
-                    child: Padding(
+                    child: const Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                       child: Text(
@@ -126,13 +126,13 @@ class _IntroPageState extends State<IntroPage> {
                       ),
                     ),
                   ),
-                  DecoratedBox(
+                  const DecoratedBox(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         colors: [
-                          Colors.black,
+                          CustomColor.black,
                           Colors.transparent,
                         ],
                       ),
