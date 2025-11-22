@@ -88,9 +88,10 @@ class _IntroPageState extends State<IntroPage> {
                     final topPadding =
                         433 / 1080 * MediaQuery.of(context).size.height;
                     return Padding(
-                      padding: EdgeInsets.only(top: topPadding),
+                      padding: EdgeInsets.only(
+                          top: topPadding, left: 100, right: 100),
                       child: Assets.images.reflection.svg(
-                        width: MediaQuery.of(context).size.width - 432 * 2,
+                        width: 1057,
                         colorFilter: const ColorFilter.mode(
                           Colors.white,
                           BlendMode.srcIn,

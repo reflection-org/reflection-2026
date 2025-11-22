@@ -8,8 +8,6 @@ class WelcomeMessagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageWidth = (MediaQuery.of(context).size.width / 1920) * 724;
-    final imageHeight = (MediaQuery.of(context).size.width / 1920) * 733;
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -18,8 +16,8 @@ class WelcomeMessagePage extends StatelessWidget {
           child: Column(
             children: [
               Assets.images.ufoAndIcon.image(
-                width: imageWidth,
-                height: imageHeight,
+                width: 724,
+                height: 733,
               ),
               const SizedBox(height: 56),
               const Text(

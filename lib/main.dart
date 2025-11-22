@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reflection2026/feature/intro/intro_page.dart';
 import 'package:reflection2026/feature/welcome/welcome_message_page.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
-import 'package:sliver_tools/sliver_tools.dart';
 
 import 'feature/clock/clock_page.dart';
-import 'gen/assets.gen.dart';
+import 'feature/information/sliver_information_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,24 +36,7 @@ class MyApp extends StatelessWidget {
             const SliverToBoxAdapter(
               child: WelcomeMessagePage(),
             ),
-            DecoratedSliver(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: Assets.images.infoBackground.provider(),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              sliver: SliverPadding(
-                padding: const EdgeInsets.symmetric(vertical: 200),
-                sliver: MultiSliver(
-                  children: [
-                    SliverToBoxAdapter(
-                      child: SizedBox(height: 200),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            const SliverInformationPage()
           ],
         ),
       ),
