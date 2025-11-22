@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../gen/assets.gen.dart';
+import '../../shared/constraints/constraints.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -108,21 +110,29 @@ class _IntroPageState extends State<IntroPage> {
               bottom: 0,
               child: Column(
                 children: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: CustomColor.primary,
-                    ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                      child: Text(
-                        "신청하기",
-                        style: TextStyle(
-                          color: CustomColor.onPrimary,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
+                  GestureDetector(
+                    onTap: () async {
+                      final url = Uri.parse(Constraints.googleFormLink);
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
+                    },
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        color: CustomColor.primary,
+                      ),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                        child: Text(
+                          "신청하기",
+                          style: TextStyle(
+                            color: CustomColor.onPrimary,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            height: 1,
+                          ),
                         ),
                       ),
                     ),
