@@ -6,7 +6,9 @@ import '../../gen/assets.gen.dart';
 import 'components/generation_component.dart';
 
 class SliverInformationPage extends StatelessWidget {
-  const SliverInformationPage({super.key});
+  final Key mapKey;
+
+  const SliverInformationPage({super.key, required this.mapKey});
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +23,19 @@ class SliverInformationPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 200),
         sliver: MultiSliver(
           children: [
-            // const SliverToBoxAdapter(
-            //   child: SizedBox(height: 280),
-            // ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: GenerationComponent(),
             ),
             const SliverToBoxAdapter(
-              child: SizedBox(height: 280),
+              child: SizedBox(height: 140),
             ),
             SliverToBoxAdapter(
+              child: SizedBox(key: mapKey, height: 1),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 140),
+            ),
+            const SliverToBoxAdapter(
               child: MapComponent(),
             )
           ],
