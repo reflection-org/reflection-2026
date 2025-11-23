@@ -4,6 +4,7 @@ import 'package:reflection2026/feature/welcome/welcome_message_page.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
 
 import 'feature/clock/clock_page.dart';
+import 'feature/faq/faq_page.dart';
 import 'feature/information/sliver_information_page.dart';
 
 void main() {
@@ -36,7 +37,10 @@ class MyApp extends StatelessWidget {
             const SliverToBoxAdapter(
               child: WelcomeMessagePage(),
             ),
-            const SliverInformationPage()
+            const SliverInformationPage(),
+            const SliverToBoxAdapter(
+              child: FaqPage(),
+            )
           ],
         ),
       ),
