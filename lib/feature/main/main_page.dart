@@ -120,6 +120,13 @@ class _MainPageState extends State<MainPage> {
             introKey: introKey,
             mapKey: mapKey,
             faqKey: faqKey,
+            onLogoTap: () {
+              _scrollController.animateTo(
+                0,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+            },
             onSectionTap: (GlobalKey key) {
               final context = key.currentContext;
               if (context != null) {

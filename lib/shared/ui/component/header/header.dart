@@ -39,6 +39,7 @@ class Header extends StatelessWidget {
   final GlobalKey introKey;
   final GlobalKey mapKey;
   final GlobalKey faqKey;
+  final GestureTapCallback onLogoTap;
   final Function(GlobalKey) onSectionTap;
 
   const Header({
@@ -47,6 +48,7 @@ class Header extends StatelessWidget {
     required this.introKey,
     required this.mapKey,
     required this.faqKey,
+    required this.onLogoTap,
     required this.onSectionTap,
   });
 
@@ -62,11 +64,14 @@ class Header extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Assets.icons.reflection.svg(
-                  width: 187,
-                  colorFilter: const ColorFilter.mode(
-                    CustomColor.white,
-                    BlendMode.srcIn,
+                GestureDetector(
+                  onTap: onLogoTap,
+                  child: Assets.icons.reflection.svg(
+                    width: 187,
+                    colorFilter: const ColorFilter.mode(
+                      CustomColor.white,
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
                 Row(
