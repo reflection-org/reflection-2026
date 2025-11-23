@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reflection2026/feature/intro/intro_page.dart';
 import 'package:reflection2026/feature/welcome/welcome_message_page.dart';
+import 'package:reflection2026/shared/ui/component/footer/footer.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
 
 import 'feature/clock/clock_page.dart';
@@ -23,23 +24,26 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Pretendard',
       ),
-      home: Scaffold(
+      home: const Scaffold(
         backgroundColor: CustomColor.black,
         body: CustomScrollView(
           shrinkWrap: true,
           slivers: [
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: IntroPage(),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: ClockPage(),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: WelcomeMessagePage(),
             ),
-            const SliverInformationPage(),
-            const SliverToBoxAdapter(
+            SliverInformationPage(),
+            SliverToBoxAdapter(
               child: FaqPage(),
+            ),
+            SliverToBoxAdapter(
+              child: Footer(),
             )
           ],
         ),

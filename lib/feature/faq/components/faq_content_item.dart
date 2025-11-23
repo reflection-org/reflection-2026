@@ -56,7 +56,7 @@ class _FaqContentItemState extends State<FaqContentItem> {
                             ? Text(
                                 widget.answer,
                                 style: const TextStyle(
-                                  color: CustomColor.gray10,
+                                  color: CustomColor.gray100,
                                   fontSize: 20,
                                   height: 1.6,
                                 ),
@@ -68,7 +68,7 @@ class _FaqContentItemState extends State<FaqContentItem> {
                 ),
               ),
               AnimatedRotation(
-                turns: _isExpanded ? 0.5 : 0, // 180도 = 0.5 turns
+                turns: _isExpanded ? 0.5 : 0,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                 child: Assets.icons.back.svg(
