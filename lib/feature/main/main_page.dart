@@ -36,6 +36,10 @@ class _MainPageState extends State<MainPage> {
     precacheImage(Assets.images.infoBackground.provider(), context);
   }
 
+  final introKey = GlobalKey();
+  final mapKey = GlobalKey();
+  final faqKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,23 +51,42 @@ class _MainPageState extends State<MainPage> {
               shrinkWrap: true,
               slivers: [
                 SliverToBoxAdapter(
-                  child: IntroPage(),
+                  child: IntroPage(key: introKey),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: ClockPage(),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: WelcomeMessagePage(),
                 ),
-                SliverInformationPage(),
-                SliverToBoxAdapter(
-                  child: FaqPage(),
+                SliverInformationPage(
+                  mapKey: mapKey,
                 ),
                 SliverToBoxAdapter(
+                  child: FaqPage(
+                    key: faqKey,
+                  ),
+                ),
+                const SliverToBoxAdapter(
                   child: Footer(),
                 ),
               ]),
-          Header(),
+          Header(
+            introKey: introKey,
+            mapKey: mapKey,
+            faqKey: faqKey,
+            onSectionTap: (GlobalKey key) {
+              final context = key.currentContext;
+              if (context != null) {
+                Scrollable.ensureVisible(
+                  context,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                  alignment: 0.0,
+                );
+              }
+            },
+          ),
         ],
       ),
     );

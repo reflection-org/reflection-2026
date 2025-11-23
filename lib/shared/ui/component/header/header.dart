@@ -23,19 +23,29 @@ class _SectionTitle extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          color: isActive
-              ? CustomColor.white
-              : CustomColor.white.withValues(alpha: 0.4),
-          fontWeight: FontWeight.w600,
-          fontSize: 18
-        ),
+            color: isActive
+                ? CustomColor.white
+                : CustomColor.white.withValues(alpha: 0.4),
+            fontWeight: FontWeight.w600,
+            fontSize: 18),
       ),
     );
   }
 }
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  final GlobalKey introKey;
+  final GlobalKey mapKey;
+  final GlobalKey faqKey;
+  final Function(GlobalKey) onSectionTap;
+
+  const Header({
+    super.key,
+    required this.introKey,
+    required this.mapKey,
+    required this.faqKey,
+    required this.onSectionTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,17 +72,23 @@ class Header extends StatelessWidget {
                     _SectionTitle(
                       title: '세션 소개',
                       isActive: true,
-                      onTap: () {},
+                      onTap: () {
+                        onSectionTap(introKey);
+                      },
                     ),
                     _SectionTitle(
                       title: '행사 장소',
                       isActive: false,
-                      onTap: () {},
+                      onTap: () {
+                        onSectionTap(mapKey);
+                      },
                     ),
                     _SectionTitle(
                       title: '자주 묻는 질문',
                       isActive: false,
-                      onTap: () {},
+                      onTap: () {
+                        onSectionTap(faqKey);
+                      },
                     ),
                   ],
                 )
