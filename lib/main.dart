@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reflection2026/feature/intro/intro_page.dart';
 import 'package:reflection2026/feature/welcome/welcome_message_page.dart';
 import 'package:reflection2026/shared/ui/component/footer/footer.dart';
+import 'package:reflection2026/shared/ui/component/header/header.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 
 import 'feature/clock/clock_page.dart';
 import 'feature/faq/faq_page.dart';
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
         body: CustomScrollView(
           shrinkWrap: true,
           slivers: [
+            SliverPinnedHeader(child: Header()),
             SliverToBoxAdapter(
               child: IntroPage(),
             ),

@@ -92,7 +92,7 @@ class _IntroPageState extends State<IntroPage> {
                     return Padding(
                       padding: EdgeInsets.only(
                           top: topPadding, left: 100, right: 100),
-                      child: Assets.images.reflection.svg(
+                      child: Assets.icons.reflection.svg(
                         width: 1057,
                         colorFilter: const ColorFilter.mode(
                           Colors.white,
