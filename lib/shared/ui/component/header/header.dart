@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/widgets.dart';
 import 'package:reflection2026/shared/ui/theme/custom_color.dart';
 
+import '../../../../feature/main/enum/section.dart';
 import '../../../../gen/assets.gen.dart';
 
 class _SectionTitle extends StatelessWidget {
@@ -34,6 +35,7 @@ class _SectionTitle extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
+  final Section currentSection;
   final GlobalKey introKey;
   final GlobalKey mapKey;
   final GlobalKey faqKey;
@@ -41,6 +43,7 @@ class Header extends StatelessWidget {
 
   const Header({
     super.key,
+    required this.currentSection,
     required this.introKey,
     required this.mapKey,
     required this.faqKey,
@@ -71,21 +74,21 @@ class Header extends StatelessWidget {
                   children: [
                     _SectionTitle(
                       title: '세션 소개',
-                      isActive: true,
+                      isActive: currentSection == Section.introduce,
                       onTap: () {
                         onSectionTap(introKey);
                       },
                     ),
                     _SectionTitle(
                       title: '행사 장소',
-                      isActive: false,
+                      isActive: currentSection == Section.map,
                       onTap: () {
                         onSectionTap(mapKey);
                       },
                     ),
                     _SectionTitle(
                       title: '자주 묻는 질문',
-                      isActive: false,
+                      isActive: currentSection == Section.faq,
                       onTap: () {
                         onSectionTap(faqKey);
                       },

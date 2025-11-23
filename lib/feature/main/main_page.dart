@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reflection2026/feature/main/enum/section.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../shared/ui/component/footer/footer.dart';
@@ -19,11 +20,54 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late final ScrollController _scrollController;
+  Section currentSection = Section.introduce;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    final offset = _scrollController.offset - 3000;
+
+    final mapContext = mapKey.currentContext;
+    final faqContext = faqKey.currentContext;
+
+    if (mapContext == null || faqContext == null) return;
+
+    final mapPosition = (mapContext.findRenderObject() as RenderBox)
+        .localToGlobal(Offset.zero, ancestor: context.findRenderObject())
+        .dy;
+
+    final faqPosition = (faqContext.findRenderObject() as RenderBox)
+        .localToGlobal(Offset.zero, ancestor: context.findRenderObject())
+        .dy;
+
+    final Section newSection;
+    if (offset >= faqPosition) {
+      newSection = Section.faq;
+    } else if (offset >= mapPosition) {
+      newSection = Section.map;
+    } else {
+      newSection = Section.introduce;
+    }
+
+    print("newSection: $newSection");
+
+    if (currentSection != newSection) {
+      setState(() {
+        currentSection = newSection;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -72,6 +116,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ]),
           Header(
+            currentSection: currentSection,
             introKey: introKey,
             mapKey: mapKey,
             faqKey: faqKey,
