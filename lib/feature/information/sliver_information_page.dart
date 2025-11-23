@@ -20,14 +20,11 @@ class SliverInformationPage extends StatelessWidget {
       sliver: SliverPadding(
         padding: const EdgeInsets.symmetric(vertical: 200),
         sliver: MultiSliver(
-          children: [
-            // const SliverToBoxAdapter(
-            //   child: SizedBox(height: 280),
-            // ),
+          children: const [
             SliverToBoxAdapter(
               child: GenerationComponent(),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: SizedBox(height: 280),
             ),
             SliverToBoxAdapter(

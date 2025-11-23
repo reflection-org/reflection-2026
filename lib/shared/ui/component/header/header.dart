@@ -25,7 +25,9 @@ class _SectionTitle extends StatelessWidget {
         style: TextStyle(
           color: isActive
               ? CustomColor.white
-              : CustomColor.white.withValues(alpha: 0.1),
+              : CustomColor.white.withValues(alpha: 0.4),
+          fontWeight: FontWeight.w600,
+          fontSize: 18
         ),
       ),
     );
