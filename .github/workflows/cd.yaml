@@ -22,7 +22,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate Assets
-        run: flutter pub run flutter_gen:main
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Build Web
         run: flutter build web --base-href "/${{ github.event.repository.name }}/"
