@@ -9,7 +9,7 @@ import '../clock/clock_page.dart';
 import '../faq/faq_page.dart';
 import '../information/sliver_information_page.dart';
 import '../intro/intro_page.dart';
-import '../welcome/welcome_message_page.dart';
+import '../welcome/sliver_welcome_message_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -30,7 +30,8 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onScroll() {
-    final offset = _scrollController.offset - 3000;
+    const welcomeMessageHeight = 4000;
+    final offset = _scrollController.offset - 3500 - welcomeMessageHeight;
 
     final mapContext = mapKey.currentContext;
     final faqContext = faqKey.currentContext;
@@ -53,8 +54,6 @@ class _MainPageState extends State<MainPage> {
     } else {
       newSection = Section.introduce;
     }
-
-    print("newSection: $newSection");
 
     if (currentSection != newSection) {
       setState(() {
@@ -100,9 +99,7 @@ class _MainPageState extends State<MainPage> {
                 const SliverToBoxAdapter(
                   child: ClockPage(),
                 ),
-                const SliverToBoxAdapter(
-                  child: WelcomeMessagePage(),
-                ),
+                const SliverWelcomeMessagePage(),
                 SliverInformationPage(
                   mapKey: mapKey,
                 ),
