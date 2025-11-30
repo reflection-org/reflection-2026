@@ -54,8 +54,6 @@ class _MainPageState extends State<MainPage> {
       newSection = Section.introduce;
     }
 
-    print("newSection: $newSection");
-
     if (currentSection != newSection) {
       setState(() {
         currentSection = newSection;

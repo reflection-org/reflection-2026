@@ -8,7 +8,7 @@ class FaqPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
+    return const ColoredBox(
       color: CustomColor.black,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 200),
