@@ -1,11 +1,11 @@
 {
-    "name": "reflection2026",
-    "short_name": "reflection2026",
+    "name": "reflection 2026",
+    "short_name": "reflection 2026",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "reflection2026",
+    "description": "reflection 2026",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
