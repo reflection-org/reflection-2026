@@ -9,7 +9,7 @@ import '../clock/clock_page.dart';
 import '../faq/faq_page.dart';
 import '../information/sliver_information_page.dart';
 import '../intro/intro_page.dart';
-import '../welcome/welcome_message_page.dart';
+import '../welcome/sliver_welcome_message_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -98,9 +98,7 @@ class _MainPageState extends State<MainPage> {
                 const SliverToBoxAdapter(
                   child: ClockPage(),
                 ),
-                const SliverToBoxAdapter(
-                  child: WelcomeMessagePage(),
-                ),
+                const SliverWelcomeMessagePage(),
                 SliverInformationPage(
                   mapKey: mapKey,
                 ),
