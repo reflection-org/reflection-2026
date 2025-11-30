@@ -30,7 +30,8 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onScroll() {
-    final offset = _scrollController.offset - 3000;
+    const welcomeMessageHeight = 4000;
+    final offset = _scrollController.offset - 3500 - welcomeMessageHeight;
 
     final mapContext = mapKey.currentContext;
     final faqContext = faqKey.currentContext;
