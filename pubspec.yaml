@@ -31,8 +31,6 @@ dev_dependencies:
 
 flutter_gen:
   integrations:
-    image: true
-    webp: true
     flutter_svg: true
 
   assets:
