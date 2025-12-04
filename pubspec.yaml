@@ -31,6 +31,7 @@ dev_dependencies:
 
 flutter_gen:
   integrations:
+    image: true
     flutter_svg: true
 
   assets:
