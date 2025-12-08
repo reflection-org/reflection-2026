@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'feature/main/main_page.dart';
+import 'package:reflection2026/feature/main/main_page_for_web.dart';
+import 'package:reflection2026/feature/main/main_page_for_mobile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,15 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Pretendard',
       ),
-      home: const MainPage(),
+      home: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth >= 600) {
+            return const MainPageForWeb();
+          } else {
+            return const MainPageForMobile();
+          }
+        },
+      ),
     );
   }
 }

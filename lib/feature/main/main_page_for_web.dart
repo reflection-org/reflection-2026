@@ -11,14 +11,14 @@ import '../information/sliver_information_page.dart';
 import '../intro/intro_page.dart';
 import '../welcome/sliver_welcome_message_page.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainPageForWeb extends StatefulWidget {
+  const MainPageForWeb({super.key});
 
   @override
-  createState() => _MainPageState();
+  createState() => _MainPageForWebState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageForWebState extends State<MainPageForWeb> {
   late final ScrollController _scrollController;
   Section currentSection = Section.introduce;
 

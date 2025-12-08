@@ -28,7 +28,7 @@ class _IntroPageState extends State<IntroPage> {
   void _initVideoController() {
     if (kIsWeb) {
       _playerController = VideoPlayerController.networkUrl(
-        Uri.parse('/assets/video/intro.mp4'),
+        Uri.parse('assets/video/intro.mp4'),
       );
     } else {
       _playerController = VideoPlayerController.asset(Assets.video.intro);
