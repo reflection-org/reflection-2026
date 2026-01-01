@@ -30,8 +30,8 @@ class _ClockPageState extends State<ClockPage> {
   @override
   void initState() {
     super.initState();
-    // 2026년 1월 10일 7시 0분 0초로 설정
-    _targetDate = DateTime(2026, 1, 10, 7, 0, 0);
+    // 2026년 1월 10일 오후 7시 0분 0초로 설정
+    _targetDate = DateTime(2026, 1, 10, 19, 0, 0);
     _calculateRemainingTime();
 
     // 1초마다 업데이트
